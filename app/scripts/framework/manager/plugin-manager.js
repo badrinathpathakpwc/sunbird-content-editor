@@ -58,7 +58,7 @@ org.ekstep.pluginframework.pluginManager = new (Class.extend({
 					org.ekstep.pluginframework.eventManager.dispatchEvent('plugin:error', { plugin: manifest.id, version: manifest.ver, action: 'load', err: err })
 					// eslint-disable-next-line
 					instance.addError({error: 'Fails to load plugin!', plugin: manifest.id, version: manifest.ver, action: 'load', stackTrace: err })
-					console.error('Unable to load editor plugin', 'plugin:' + manifest.id + '-' + manifest.ver, 'resource:' + manifest[scope].main, 'Error:', err)
+					console.error('Unable to load editor plugin Error')
 				} else {
 					try {
 						if (!instance.isPluginDefined(manifest.id)) {
@@ -69,12 +69,12 @@ org.ekstep.pluginframework.pluginManager = new (Class.extend({
 								if (data) instance.registerPlugin(manifest, eval(data), repo)
 							}
 						} else {
-							console.info('Plugin is already registered: ', manifest.id)
+							console.info('Plugin is already registered: ')
 						}
 					} catch (e) {
 						org.ekstep.pluginframework.eventManager.dispatchEvent('plugin:error', { plugin: manifest.id, version: manifest.ver, action: 'load', err: e })
 						instance.addError({error: 'Fails to load plugin!', plugin: manifest.id, version: manifest.ver, action: 'load', stackTrace: e})
-						console.error('Error while loading plugin', 'plugin:' + manifest.id + '-' + manifest.ver, 'Error:', e)
+						console.error('Error while loading plugin')
 					}
 				}
 			}, publishedTime)
