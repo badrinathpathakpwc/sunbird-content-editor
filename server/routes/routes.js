@@ -14,7 +14,10 @@ module.exports = function(app, dirname) {
 	
 	/** Content List Routes */
 	app.get('/app/image/get/:url', function(req, res) {
-		request.get(req.params.url).pipe(res);
+		var localUrl=req.params.url;
+		if(localUrl){
+			request.get(localUrl).pipe(res);
+		}
 	});
 
 	app.post('/app/ecml', function(req, res) {
